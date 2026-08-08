@@ -1,0 +1,7 @@
+{
+  "name": "takeone-landing-page",
+  "private": true,
+  "dependencies": {
+    "worker-mailer": "^1.0.0"
+  }
+}
