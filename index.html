@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <title>TakeOne | The Professional Network for Filmmakers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="TakeOne | The Professional Network for Filmmakers" />
+  <meta name="description" content="TakeOne is the ultimate platform for cinema professionals. Showcase your showreel, build your network, and find your next film crew job." />
+  <meta name="keywords" content="filmmaking, cinema network, film crew jobs, showreel portfolio, director, cinematographer, production designer" />
+  <meta name="author" content="TakeOne" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://takeone.app/" />
+  <meta property="og:title" content="TakeOne | The Professional Network for Filmmakers" />
+  <meta property="og:description" content="TakeOne is the ultimate platform for cinema professionals. Showcase your showreel, build your network, and find your next film crew job." />
+  <meta property="og:image" content="https://storage.googleapis.com/aistudio-janus-prod-appspot/image-76406987-90c7-43ad-8c67-0c77747e0a29.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://takeone.app/" />
+  <meta property="twitter:title" content="TakeOne | The Professional Network for Filmmakers" />
+  <meta property="twitter:description" content="TakeOne is the ultimate platform for cinema professionals. Showcase your showreel, build your network, and find your next film crew job." />
+  <meta property="twitter:image" content="https://storage.googleapis.com/aistudio-janus-prod-appspot/image-76406987-90c7-43ad-8c67-0c77747e0a29.png" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://takeone.app/" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FFD200',
+            'primary-dark': '#e6bd00',
+            bgDark: '#050505',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/css">
+    body {
+      background-color: #050505;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    .glass-panel {
+      background-color: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    }
+    
+    .text-gradient-primary {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(to right, #FFD200, #ffea80);
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .animate-on-scroll.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-delay-1 { transition-delay: 0.15s; }
+    .stagger-delay-2 { transition-delay: 0.3s; }
+    .stagger-delay-3 { transition-delay: 0.45s; }
+
+    /* Hide scrollbar for the mockup feed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Custom Scrollbar */
+    @media (min-width: 768px) {
+      html, body {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 210, 0, 0.5);
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-white antialiased selection:bg-primary selection:text-black">
+
+<nav class="fixed top-0 w-full z-50 glass-panel border-b-0 border-white/5 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <!-- Logo -->
+      <div class="flex items-center justify-center">
+        <img src="TakeOne_app_logo.png" alt="TakeOne Logo" class="h-10 w-auto object-contain">
+      </div>
+      <span class="font-display font-bold text-2xl tracking-tight">TakeOne</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+      <a href="#features" class="hover:text-primary transition-colors">Features</a>
+      <a href="#about" class="hover:text-primary transition-colors">About</a>
+      <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+    </div>
+    <div class="hidden md:block">
+      <button class="bg-primary text-black px-6 py-2.5 rounded-full font-semibold hover:bg-primary-dark transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,210,0,0.3)]">
+        Arriving soon
+      </button>
+    </div>
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-white p-2" id="mobileMenuBtn" aria-label="Toggle menu">
+      <span class="material-icons" id="menuIcon">menu</span>
+    </button>
+  </div>
+  <!-- Mobile Menu Dropdown -->
+  <div class="hidden md:hidden absolute top-20 left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 px-6 py-8 flex flex-col gap-6 shadow-2xl" id="mobileMenuDropdown">
+    <a href="#features" class="text-lg font-medium text-white/90 hover:text-primary" onclick="toggleMobileMenu()">Features</a>
+    <a href="#about" class="text-lg font-medium text-white/90 hover:text-primary" onclick="toggleMobileMenu()">About</a>
+    <a href="#contact" class="text-lg font-medium text-white/90 hover:text-primary" onclick="toggleMobileMenu()">Contact</a>
+    <button class="bg-primary text-black px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all mt-4 w-full">
+      arriving soon
+    </button>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-32 pb-16 md:pb-24 overflow-hidden">
+    <!-- Background glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] opacity-50 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+      <div class="hero-text space-y-6 md:space-y-8 text-center lg:text-left mt-10 lg:mt-0">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-primary text-sm font-medium animate-on-scroll appear">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(255,210,0,0.8)]"></span>
+          Android & iOS. Landing 2026.
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight animate-on-scroll appear stagger-delay-1">
+          The Professional Network for <span class="text-gradient-primary">Cinema</span>.
+        </h1>
+        <p class="text-base md:text-lg text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed animate-on-scroll appear stagger-delay-2">
+          Showcase your portfolio like Instagram. Connect and find jobs like LinkedIn. Built exclusively for filmmakers, actors, and crew.
+        </p>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-4 justify-center lg:justify-start animate-on-scroll appear stagger-delay-3">
+          <button class="flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl w-full sm:w-auto">
+            <span class="material-icons">android</span> Google Play
+          </button>
+          <button class="flex items-center justify-center gap-2 glass-panel px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all transform hover:scale-105 w-full sm:w-auto">
+            <span class="material-icons">apple</span> App Store
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-mockup relative perspective-[2000px] w-full max-w-[280px] md:max-w-[360px] mx-auto h-[550px] md:h-[700px] mt-8 lg:mt-0 animate-on-scroll appear stagger-delay-2" id="mockupContainer">
+        <div class="hero-mockup-inner relative w-full h-full transform transition-transform duration-300 ease-out" id="mockupInner" style="transform-style: preserve-3d; transform: rotateY(-15deg) rotateX(5deg);">
+          <!-- Phone Frame -->
+          <div class="absolute inset-0 rounded-[3rem] border-[8px] border-[#222] bg-black shadow-2xl overflow-hidden ring-1 ring-white/10" style="padding: 10px;">
+            <img src="Home.png" alt="TakeOne App Feed" class="w-full h-full object-cover">
+          </div>
+          <!-- Glow behind phone -->
+          <div class="absolute -inset-6 bg-primary/20 blur-3xl -z-10 rounded-[3rem]"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 md:py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 md:mb-20 section-header animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Everything you need to <span class="text-primary">succeed</span>.</h2>
+        <p class="text-white/60 max-w-2xl mx-auto text-base md:text-lg">TakeOne combines the visual storytelling of Instagram with the professional networking power of LinkedIn, tailored specifically for the cinema industry.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 features-grid">
+        <!-- Feature 1 -->
+        <div class="glass-panel p-8 rounded-3xl feature-card animate-on-scroll stagger-delay-1 hover:border-primary/50 transition-colors group cursor-default">
+          <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+            <span class="material-icons text-primary text-3xl">photo_camera</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Visual Portfolio</h3>
+          <p class="text-white/60 leading-relaxed">Share behind-the-scenes, showreels, and headshots in a beautiful, immersive feed designed for visual artists.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="glass-panel p-8 rounded-3xl feature-card animate-on-scroll stagger-delay-2 hover:border-primary/50 transition-colors group cursor-default">
+          <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+            <span class="material-icons text-primary text-3xl">people</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Industry Network</h3>
+          <p class="text-white/60 leading-relaxed">Connect with directors, producers, actors, and crew members. Build relationships that lead to your next project.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="glass-panel p-8 rounded-3xl feature-card animate-on-scroll stagger-delay-3 hover:border-primary/50 transition-colors group cursor-default">
+          <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
+            <span class="material-icons text-primary text-3xl">work</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Job Board</h3>
+          <p class="text-white/60 leading-relaxed">Discover casting calls, crew openings, and freelance gigs tailored specifically for the cinema industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 md:py-24 relative bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div class="space-y-6 section-header animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-display font-bold">Built by filmmakers, <br class="hidden md:block"/>for <span class="text-primary">filmmakers</span>.</h2>
+        <p class="text-white/60 leading-relaxed text-base md:text-lg">
+          We realized that the cinema industry relies heavily on visual proof of work and strong networking, yet no single platform offered both effectively. 
+        </p>
+        <p class="text-white/60 leading-relaxed text-lg">
+          TakeOne bridges this gap. It's the place where your showreel meets your resume, and where your next collaboration begins.
+        </p>
+        <div class="pt-4 flex gap-4">
+          <div class="glass-panel px-6 py-4 rounded-2xl text-center">
+            <div id="stat-users" class="text-3xl font-bold text-primary mb-1">0k+</div>
+            <div class="text-xs text-white/50 uppercase tracking-wider">Active Users</div>
+          </div>
+          <div class="glass-panel px-6 py-4 rounded-2xl text-center">
+            <div id="stat-jobs" class="text-3xl font-bold text-primary mb-1">0+</div>
+            <div class="text-xs text-white/50 uppercase tracking-wider">Jobs Posted</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative h-[400px] rounded-3xl overflow-hidden glass-panel border-white/10 animate-on-scroll stagger-delay-2">
+        <div class="absolute inset-0 bg-[url('https://picsum.photos/seed/filmmaking/800/600')] bg-cover bg-center opacity-40 mix-blend-luminosity"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-3 border border-primary/30">
+            Our Mission
+          </div>
+          <h3 class="text-2xl font-bold">Empowering creators to tell their stories and find their crew.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Screens Gallery -->
+  <section id="gallery" class="py-16 md:py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16 section-header animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Inside <span class="text-primary">TakeOne</span></h2>
+        <p class="text-base md:text-xl text-white/70 max-w-2xl mx-auto">
+          Everything you need to build your career in cinema, right in your pocket.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 gallery-grid">
+        <!-- Screen 1 -->
+        <div class="gallery-card animate-on-scroll stagger-delay-1">
+          <div class="relative mx-auto w-[280px] h-[600px] bg-black rounded-[2.5rem] border-[8px] border-white/10 overflow-hidden shadow-2xl">
+            <img src="Home.png" alt="Home Feed" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-bold text-center mt-6">Showcase Your Work</h3>
+        </div>
+        <!-- Screen 2 -->
+        <div class="gallery-card animate-on-scroll stagger-delay-2 md:mt-12">
+          <div class="relative mx-auto w-[280px] h-[600px] bg-black rounded-[2.5rem] border-[8px] border-white/10 overflow-hidden shadow-2xl">
+            <img src="Explore.png" alt="Network" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-bold text-center mt-6">Build Your Network</h3>
+        </div>
+        <!-- Screen 3 -->
+        <div class="gallery-card animate-on-scroll stagger-delay-3 md:mt-24">
+          <div class="relative mx-auto w-[280px] h-[600px] bg-black rounded-[2.5rem] border-[8px] border-white/10 overflow-hidden shadow-2xl">
+            <img src="Jobs.png" alt="Find Jobs" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-xl font-bold text-center mt-6">Find Opportunities</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 md:py-24 relative bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12 md:mb-16 section-header animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">Loved by <span class="text-primary">Professionals</span></h2>
+        <p class="text-base md:text-xl text-white/70 max-w-2xl mx-auto">
+          See what filmmakers and crew members are saying about TakeOne.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="glass-panel p-8 rounded-3xl testimonial-card animate-on-scroll stagger-delay-1">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="https://picsum.photos/seed/user1/100/100" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-primary/50">
+            <div>
+              <h4 class="font-bold">Alex Rivera</h4>
+              <p class="text-xs text-white/50">Cinematographer</p>
+            </div>
+          </div>
+          <p class="text-white/80 italic">"TakeOne completely changed how I find gigs. The visual portfolio feature lets my work speak for itself, and I've connected with amazing directors."</p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="glass-panel p-8 rounded-3xl testimonial-card animate-on-scroll stagger-delay-2">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="https://picsum.photos/seed/user2/100/100" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-primary/50">
+            <div>
+              <h4 class="font-bold">Samantha Chen</h4>
+              <p class="text-xs text-white/50">Production Designer</p>
+            </div>
+          </div>
+          <p class="text-white/80 italic">"Finally, a network that understands the film industry. It's not just about resumes; it's about the aesthetic and the people you know."</p>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="glass-panel p-8 rounded-3xl testimonial-card animate-on-scroll stagger-delay-3">
+          <div class="flex items-center gap-4 mb-6">
+            <img src="https://picsum.photos/seed/user3/100/100" alt="User" class="w-14 h-14 rounded-full object-cover border-2 border-primary/50">
+            <div>
+              <h4 class="font-bold">Marcus Johnson</h4>
+              <p class="text-xs text-white/50">Independent Director</p>
+            </div>
+          </div>
+          <p class="text-white/80 italic">"I cast my entire short film using TakeOne. The talent pool is incredibly high-quality, and the interface makes reviewing reels a breeze."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CEO Message Section -->
+  <section id="ceo-message" class="py-20 md:py-32 relative">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="glass-panel rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 overflow-hidden relative ceo-container animate-on-scroll border-white/10">
+        <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center relative z-10">
+          <div class="md:col-span-2">
+            <div class="relative w-full max-w-[240px] md:max-w-full mx-auto aspect-[4/5] rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+              <img src="founder.jpeg" alt="CEO Portrait" class="w-full h-full object-cover grayscale contrast-125">
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay pointer-events-none"></div>
+            </div>
+          </div>
+          <div class="md:col-span-3 space-y-6 md:space-y-8 text-center md:text-left">
+            <span class="material-icons text-primary text-5xl md:text-6xl opacity-50 transform -scale-x-100 -translate-y-2 md:-translate-y-4">format_quote</span>
+            <blockquote class="text-xl md:text-3xl font-display leading-relaxed text-white/90">
+              "We built TakeOne because the magic of cinema shouldn't be lost in text-heavy resumes. Your work is visual, your network should be too. We're here to give every creator their spotlight.The first step to your the Big Screen Dream"
+            </blockquote>
+            <div>
+              <h4 class="text-lg md:text-xl font-bold text-primary">Kumarappan</h4>
+              <p class="text-white/50 uppercase tracking-wider text-xs md:text-sm mt-1">Founder & CEO, TakeOne</p>
+            </div>
+          </div>
+        </div>
+        <!-- Decorative background element -->
+        <div class="absolute -bottom-24 -right-24 w-64 h-64 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 md:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-primary/5 transform -skew-y-3 origin-top-left"></div>
+    <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
+      <div class="section-header animate-on-scroll">
+        <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Ready for your <span class="text-primary">TakeOne</span>?</h2>
+        <p class="text-white/60 text-base md:text-lg mb-8 md:mb-12">Join thousands of cinema professionals already building their careers. Have questions? Reach out to us.</p>
+      </div>
+      
+      <div class="glass-panel p-8 md:p-12 rounded-3xl text-left contact-form-container animate-on-scroll shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-white/10">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+            <span class="material-icons text-primary">mail_outline</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold">Contact Us</h3>
+            <p class="text-sm text-white/50">We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+        
+        <form class="space-y-5" id="contactForm">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="space-y-2">
+              <label for="contact-name" class="text-sm font-medium text-white/70">Name</label>
+              <input id="contact-name" type="text" name="name" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-white/20" placeholder="Christopher Nolan">
+            </div>
+            <div class="space-y-2">
+              <label for="contact-email" class="text-sm font-medium text-white/70">Email</label>
+              <input id="contact-email" type="email" name="email" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-white/20" placeholder="chris@example.com">
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label for="contact-message" class="text-sm font-medium text-white/70">Message</label>
+            <textarea id="contact-message" rows="4" name="message" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-white/20 resize-none" placeholder="How can we help you?"></textarea>
+          </div>
+          
+          <!-- Status Messages -->
+          <div id="submitMessage" class="hidden p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-300 text-sm"></div>
+          <div id="submitError" class="hidden p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-300 text-sm"></div>
+          
+          <button type="submit" id="submitBtn" class="w-full bg-primary text-black font-bold py-4 rounded-xl hover:bg-primary-dark transition-all transform hover:scale-[1.02] active:scale-[0.98] mt-2 shadow-[0_0_20px_rgba(255,210,0,0.2)] disabled:opacity-50 disabled:cursor-not-allowed">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-white/10 py-12 bg-black relative z-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="flex items-center gap-3">
+      <img src="TakeOne_app_logo.png" alt="TakeOne Logo" class="h-8 w-auto object-contain">
+      <span class="font-display font-bold text-xl tracking-tight">TakeOne</span>
+    </div>
+    <div class="text-white/40 text-sm">
+      &copy; 2026 TakeOne App. All rights reserved.
+    </div>
+    <div class="flex gap-5 items-center">
+      <a href="https://www.instagram.com/take1app_platform?igsh=YTR0djBiY2dlazRq" class="text-white/40 hover:text-primary transition-colors" aria-label="Instagram" target="_blank">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/share/18TH63Ghhx/" class="text-white/40 hover:text-primary transition-colors" aria-label="Facebook" target="_blank">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="https://x.com/takeoneapp" class="text-white/40 hover:text-primary transition-colors" aria-label="X (Twitter)" target="_blank">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+  const menuIcon = document.getElementById('menuIcon');
+
+  function toggleMobileMenu() {
+    mobileMenuDropdown.classList.toggle('hidden');
+    if (mobileMenuDropdown.classList.contains('hidden')) {
+      menuIcon.textContent = 'menu';
+    } else {
+      menuIcon.textContent = 'close';
+    }
+  }
+
+  mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+  // Scroll Animations (IntersectionObserver)
+  const animQueue = document.querySelectorAll('.animate-on-scroll');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+        
+        // Counter stats specific animation when visible
+        if (entry.target.querySelector('#stat-users') || entry.target.id === 'stat-users') {
+          animateCounter('stat-users', 0, 10, 'k+');
+        }
+        if (entry.target.querySelector('#stat-jobs') || entry.target.id === 'stat-jobs') {
+          animateCounter('stat-jobs', 0, 500, '+');
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+
+  animQueue.forEach(item => observer.observe(item));
+
+  // Count Animation Helper
+  function animateCounter(id, start, end, suffix) {
+    const el = document.getElementById(id);
+    if (!el || el.dataset.animated === "true") return;
+    el.dataset.animated = "true";
+    
+    let current = start;
+    const duration = 2000;
+    const steps = 60;
+    const increment = (end - start) / steps;
+    const stepTime = duration / steps;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      el.textContent = Math.round(current) + suffix;
+    }, stepTime);
+  }
+
+  // 3D Mouse Tracking for Mockup
+  const mockupContainer = document.getElementById('mockupContainer');
+  const mockupInner = document.getElementById('mockupInner');
+  
+  if (mockupContainer && mockupInner) {
+    mockupContainer.addEventListener('mousemove', (e) => {
+      const rect = mockupContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+      
+      mockupInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    
+    mockupContainer.addEventListener('mouseleave', () => {
+      mockupInner.style.transform = `rotateX(5deg) rotateY(-15deg)`;
+    });
+  }
+
+  // Contact Form Submission (Pages Functions API endpoint)
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitMsg = document.getElementById('submitMessage');
+  const submitErr = document.getElementById('submitError');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitMsg.classList.add('hidden');
+    submitErr.classList.add('hidden');
+
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+      
+      const data = await res.json();
+      
+      if (res.ok) {
+        submitMsg.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+        submitMsg.classList.remove('hidden');
+        contactForm.reset();
+      } else {
+        throw new Error(data.error || 'Error sending message. Please try again.');
+      }
+    } catch (err) {
+      submitErr.textContent = err.message || 'Something went wrong. Please check your connection and try again.';
+      submitErr.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+
+</body>
+</html>
