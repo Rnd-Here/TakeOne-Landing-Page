@@ -1,6 +1,11 @@
 import { WorkerMailer } from 'worker-mailer';
 
-export const onRequestPost: PagesFunction<{ ZOHO_EMAIL: string; ZOHO_APP_PASSWORD: string }> = async (context) => {
+export const onRequestPost: PagesFunction<{ 
+  ZOHO_EMAIL: string; 
+  ZOHO_APP_PASSWORD: string;
+  SMTP_HOST?: string;
+  SMTP_PORT?: string;
+}> = async (context) => {
   try {
     const { name, email, message } = await context.request.json() as {
       name?: string; email?: string; message?: string;
@@ -13,15 +18,20 @@ export const onRequestPost: PagesFunction<{ ZOHO_EMAIL: string; ZOHO_APP_PASSWOR
       return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
     }
 
+    // Read SMTP settings from environment variables or fallback to defaults
+    const smtpHost = context.env.SMTP_HOST || 'smtp.zoho.com'; // Defaulting to global US zoho (smtp.zoho.com)
+    const smtpPort = parseInt(context.env.SMTP_PORT || '465', 10);
+    const isSecure = smtpPort === 465;
+
     const mailer = await WorkerMailer.connect({
       credentials: {
         username: context.env.ZOHO_EMAIL,
         password: context.env.ZOHO_APP_PASSWORD,
       },
       authType: 'plain',
-      host: 'smtp.zoho.in', // Confirm account data center (smtp.zoho.com / .in / .eu)
-      port: 465,
-      secure: true,
+      host: smtpHost,
+      port: smtpPort,
+      secure: isSecure,
     });
 
     await mailer.send({
