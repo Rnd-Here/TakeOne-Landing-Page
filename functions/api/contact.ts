@@ -15,19 +15,24 @@ export const onRequestPost: PagesFunction<{
       return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
     }
 
-    const zeptoApiUrl = context.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.com/v1.1/email';
-    const zeptoApiKey = context.env.ZEPTOMAIL_API_KEY;
+    const zeptoApiUrl = context.env.ZEPTOMAIL_API_URL || 'https://api.zeptomail.in/v1.1/email';
+    const rawApiKey = context.env.ZEPTOMAIL_API_KEY;
     const backendBaseUrl = context.env.BACKEND_API_URL;
 
-    if (!zeptoApiKey) {
+    if (!rawApiKey) {
       return new Response(JSON.stringify({ error: 'ZeptoMail API Key is missing' }), { status: 500 });
     }
     if (!backendBaseUrl) {
       return new Response(JSON.stringify({ error: 'Backend API URL is missing' }), { status: 500 });
     }
 
+    // Automatically normalize the auth token prefix
+    const authHeaderValue = rawApiKey.startsWith('Zoho-enczapikey') 
+      ? rawApiKey 
+      : `Zoho-enczapikey ${rawApiKey}`;
+
     const zeptoHeaders = {
-      'Authorization': `Zoho-enczapikey ${zeptoApiKey}`,
+      'Authorization': authHeaderValue,
       'Content-Type': 'application/json',
       'Accept': 'application/json',
     };
