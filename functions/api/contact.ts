@@ -116,10 +116,13 @@ export const onRequestPost: PagesFunction<{
       
       console.error('Contact Submission Failures:', { backendErr, supportErr, userErr });
 
-      // We still return a 500 error if any of the operations failed
+      let errorMessage = 'Submission failed:';
+      if (backendErr) errorMessage += ` [Backend DB Save: ${backendErr}]`;
+      if (supportErr) errorMessage += ` [Support Email: ${supportErr}]`;
+      if (userErr) errorMessage += ` [User Email: ${userErr}]`;
+
       return new Response(JSON.stringify({ 
-        error: 'Failed to process contact query completely.',
-        details: { backendErr, supportErr, userErr }
+        error: errorMessage
       }), { 
         status: 500,
         headers: { 'Content-Type': 'application/json' }
