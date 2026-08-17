@@ -227,6 +227,20 @@
       opacity: 1;
       margin-top: 12px;
     }
+
+    /* Payment Order Wrapper */
+    #paymentOrderWrapper {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.35s ease, margin-top 0.35s ease;
+      margin-top: 0;
+    }
+    #paymentOrderWrapper.visible {
+      max-height: 80px;
+      opacity: 1;
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body class="bg-black text-white antialiased selection:bg-primary selection:text-black">
@@ -402,6 +416,20 @@
               <p id="custom-category-error" class="text-xs text-red-400 hidden mt-1">Please describe your category.</p>
             </div>
 
+            <!-- Payment Order ULID input (shown only for "Payment Dispute") -->
+            <div id="paymentOrderWrapper">
+              <div class="relative">
+                <span class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-white/25 text-xl pointer-events-none">receipt_long</span>
+                <input
+                  id="support-payment-order-ulid"
+                  type="text"
+                  name="payment_order_ulid"
+                  class="form-field pl-11"
+                  placeholder="Payment Order ID (Optional)"
+                >
+              </div>
+            </div>
+
             <!-- Hidden real input to carry the resolved category value -->
             <input type="hidden" id="support-category" name="category">
           </div>
@@ -575,6 +603,17 @@
       wrapper.classList.remove('visible');
       customInput.value = '';
     }
+
+    // Show / hide payment order wrapper for Payment Dispute
+    const paymentWrapper = document.getElementById('paymentOrderWrapper');
+    const paymentInput = document.getElementById('support-payment-order-ulid');
+    if (value === 'Payment Dispute') {
+      paymentWrapper.classList.add('visible');
+      paymentInput.focus();
+    } else {
+      paymentWrapper.classList.remove('visible');
+      paymentInput.value = '';
+    }
   }
 
   document.getElementById('categoryChips').addEventListener('click', (e) => {
@@ -645,6 +684,7 @@
       subject:  document.getElementById('support-subject').value.trim(),
       message:  document.getElementById('support-message').value.trim(),
       category: rawCategory,
+      paymentOrderUlid: document.getElementById('support-payment-order-ulid').value.trim(),
     };
 
     // Disable button & show spinner
@@ -686,6 +726,7 @@
         });
         document.getElementById('support-category').value = '';
         document.getElementById('customCategoryWrapper').classList.remove('visible');
+        document.getElementById('paymentOrderWrapper').classList.remove('visible');
         document.getElementById('char-counter').textContent = '30';
         // Scroll to success
         formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
