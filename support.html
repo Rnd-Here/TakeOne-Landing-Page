@@ -389,10 +389,11 @@
                   id="support-custom-category"
                   type="text"
                   name="custom_category"
-                  class="form-field pl-11"
+                  class="form-field pl-11 pr-12"
                   placeholder="Describe your category"
-                  maxlength="80"
+                  maxlength="30"
                 >
+                <span id="char-counter" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 text-xs pointer-events-none">30</span>
               </div>
               <p id="custom-category-error" class="text-xs text-red-400 hidden mt-1">Please describe your category.</p>
             </div>
@@ -681,6 +682,7 @@
         });
         document.getElementById('support-category').value = '';
         document.getElementById('customCategoryWrapper').classList.remove('visible');
+        document.getElementById('char-counter').textContent = '30';
         // Scroll to success
         formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
@@ -695,6 +697,13 @@
       submitBtn.disabled = false;
       submitBtn.innerHTML = `<span class="material-icons text-xl">send</span> Submit Ticket`;
     }
+  });
+
+  /* ── Custom Category Character Limit ── */
+  const customCategoryInput = document.getElementById('support-custom-category');
+  const charCounter = document.getElementById('char-counter');
+  customCategoryInput.addEventListener('input', () => {
+    charCounter.textContent = 30 - customCategoryInput.value.length;
   });
 
   /* ── Run on load ── */
