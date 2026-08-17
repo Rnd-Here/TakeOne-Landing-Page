@@ -360,6 +360,21 @@
               <button type="button" class="category-chip" data-value="General Queries" aria-pressed="false">
                 <span class="material-icons chip-icon">help_outline</span> General Queries
               </button>
+              <button type="button" class="category-chip" data-value="Payment Dispute" aria-pressed="false">
+                <span class="material-icons chip-icon">payment</span> Payment Dispute
+              </button>
+              <button type="button" class="category-chip" data-value="Token Missing" aria-pressed="false">
+                <span class="material-icons chip-icon">vpn_key</span> Token Missing
+              </button>
+              <button type="button" class="category-chip" data-value="Technical Bug" aria-pressed="false">
+                <span class="material-icons chip-icon">build</span> Technical Bug
+              </button>
+              <button type="button" class="category-chip" data-value="Account Issue" aria-pressed="false">
+                <span class="material-icons chip-icon">account_box</span> Account Issue
+              </button>
+              <button type="button" class="category-chip" data-value="Spam Report" aria-pressed="false">
+                <span class="material-icons chip-icon">report_problem</span> Spam Report
+              </button>
               <button type="button" class="category-chip" data-value="Others" aria-pressed="false">
                 <span class="material-icons chip-icon">more_horiz</span> Others
               </button>
@@ -493,7 +508,18 @@
   animItems.forEach(item => observer.observe(item));
 
   /* ── URL Query Pre-population ── */
-  const CATEGORY_VALUES = ['Content issue', 'App issue', 'Legal compliance', 'General Queries', 'Others'];
+  const CATEGORY_VALUES = [
+    'Content issue',
+    'App issue',
+    'Legal compliance',
+    'General Queries',
+    'Payment Dispute',
+    'Token Missing',
+    'Technical Bug',
+    'Account Issue',
+    'Spam Report',
+    'Others'
+  ];
 
   function prepopulateFromQuery() {
     const params = new URLSearchParams(window.location.search);
@@ -606,7 +632,7 @@
 
     // Resolve final category
     const rawCategory = selectedCategory === 'Others'
-      ? document.getElementById('support-custom-category').value.trim()
+      ? `Others - ${document.getElementById('support-custom-category').value.trim()}`
       : selectedCategory;
 
     const payload = {

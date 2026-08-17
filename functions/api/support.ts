@@ -19,25 +19,6 @@ export const onRequestPost: PagesFunction<{
       return new Response(JSON.stringify({ error: 'Backend API URL is missing' }), { status: 500 });
     }
 
-    // Map frontend display categories to backend enum categories:
-    // Backend expected: PAYMENT_DISPUTE, TOKEN_MISSING, TECHNICAL_BUG, ACCOUNT_ISSUE, SPAM_REPORT, OTHER
-    let backendCategory = 'OTHER';
-    const lowerCategory = category.toLowerCase();
-    
-    if (lowerCategory.includes('content')) {
-      backendCategory = 'SPAM_REPORT';
-    } else if (lowerCategory.includes('app') || lowerCategory.includes('bug')) {
-      backendCategory = 'TECHNICAL_BUG';
-    } else if (lowerCategory.includes('legal') || lowerCategory.includes('compliance') || lowerCategory.includes('account')) {
-      backendCategory = 'ACCOUNT_ISSUE';
-    } else if (lowerCategory.includes('payment') || lowerCategory.includes('dispute')) {
-      backendCategory = 'PAYMENT_DISPUTE';
-    } else if (lowerCategory.includes('token')) {
-      backendCategory = 'TOKEN_MISSING';
-    } else {
-      backendCategory = 'OTHER';
-    }
-
     const backendUrl = `${backendBaseUrl.replace(/\/$/, '')}/api/v1/support/ticket`;
 
     const headers: Record<string, string> = {
@@ -58,7 +39,7 @@ export const onRequestPost: PagesFunction<{
         email,
         subject,
         description: message, // map "message" to "description" as expected by backend
-        category: backendCategory,
+        category: category,
         paymentOrderUlid: paymentOrderUlid || "",
       }),
     });
