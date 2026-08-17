@@ -621,9 +621,15 @@
     submitBtn.innerHTML = `<span class="spinner"></span> Submitting…`;
 
     try {
-      const res = await fetch('https://api.take1app.com/token', {
+      const headers = { 'Content-Type': 'application/json' };
+      const token = localStorage.getItem('access_token') || sessionStorage.getItem('access_token');
+      if (token) {
+        headers['Authorization'] = token.startsWith('Bearer ') ? token : `Bearer ${token}`;
+      }
+
+      const res = await fetch('/api/support', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify(payload),
       });
 
